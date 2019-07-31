@@ -32,7 +32,7 @@ h6 {
 .key {
   border: 0.4rem solid black;
   border-radius: 0.5rem;
-  margin: 1rem;
+  margin: 0.3rem;
   font-size: 1.5rem;
   padding: 1rem 0.5rem;
   transition: all 0.07s ease;
