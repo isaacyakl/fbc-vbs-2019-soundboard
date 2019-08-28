@@ -4,16 +4,20 @@
     <meta charset="UTF-8" />
     <title>VBS 2019 Soundboard</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/public-address-loudspeaker_1f4e2.png"
+    />
   </head>
   <body>
     <div class="keys">
-      <div data-key="116" class="key">
-        <kbd>F5</kbd>
+      <div data-key="83" class="key">
+        <kbd>S</kbd>
         <span class="kbd-icon stop">🛑</span>
         <span class="sound">stop sound</span>
       </div>
-      <div data-key="117" class="key">
-        <kbd>F6</kbd>
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
         <span class="kbd-icon">🎵</span>
         <span class="sound">KotF song</span>
       </div>
@@ -60,7 +64,7 @@
     <audio data-key="69" src="sounds/keypad.mp3"></audio>
     <audio data-key="87" src="sounds/time-machine-spindown.mp3"></audio>
     <audio data-key="82" src="sounds/earthquake.mp3"></audio>
-    <audio data-key="117" src="sounds/king-of-the-future.mp3"></audio>
+    <audio data-key="74" src="sounds/king-of-the-future.mp3"></audio>
 
     <script>
       // Function to remove "playing" class when css transition ends
@@ -73,13 +77,23 @@
       function playSound(e) {
         const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
         const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-        // console.log(e);
-        if (!audio) return; // No audio associated with the key that was pressed
 
-        key.classList.add("playing");
+        if (e.keyCode == 83) {
+          // If key pressed is "s"
+          key.classList.add("playing"); // Add playing class for visual animation
+          audios.forEach(audio => audio.pause()); // pause all audios that may be playing
+          return;
+        } else if (!audio) {
+          // No audio associated with the key that was pressed
+          return;
+        }
+
+        key.classList.add("playing"); // Add playing class for visual animation
         audio.currentTime = 0; // If audio file already playing, start it from beginning to play it again
         audio.play(); // Play audio
       }
+
+      const audios = Array.from(document.querySelectorAll("audio")); // Array of audios
 
       // Add listeners for removing class when css transform transition has ended
       const keys = Array.from(document.querySelectorAll(".key"));
