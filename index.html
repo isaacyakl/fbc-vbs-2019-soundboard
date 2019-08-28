@@ -32,8 +32,8 @@
         <kbd>E</kbd>
         <span class="sound">keypad</span>
       </div>
-      <div data-key="85" class="key">
-        <kbd>U</kbd>
+      <div data-key="82" class="key">
+        <kbd>R</kbd>
         <span class="sound">earthquake</span>
       </div>
     </div>
@@ -59,30 +59,34 @@
     <audio data-key="67" src="sounds/desert.mp3"></audio>
     <audio data-key="69" src="sounds/keypad.mp3"></audio>
     <audio data-key="87" src="sounds/time-machine-spindown.mp3"></audio>
-    <audio data-key="85" src="sounds/earthquake.mp3"></audio>
+    <audio data-key="82" src="sounds/earthquake.mp3"></audio>
     <audio data-key="117" src="sounds/king-of-the-future.mp3"></audio>
 
     <script>
+      // Function to remove "playing" class when css transition ends
       function removeTransition(e) {
-        if (e.propertyName !== "transform") return;
-        e.target.classList.remove("playing");
+        if (e.propertyName !== "transform") return; // If the transition is a transform then skip
+        e.target.classList.remove("playing"); // The transition was a transform so go ahead and remove the "playing" class
       }
 
+      // Function for playing sound based on key pressed
       function playSound(e) {
         const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
         const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-        if (!audio) return;
+        // console.log(e);
+        if (!audio) return; // No audio associated with the key that was pressed
 
         key.classList.add("playing");
-        audio.currentTime = 0;
-        audio.play();
+        audio.currentTime = 0; // If audio file already playing, start it from beginning to play it again
+        audio.play(); // Play audio
       }
 
+      // Add listeners for removing class when css transform transition has ended
       const keys = Array.from(document.querySelectorAll(".key"));
       keys.forEach(key =>
         key.addEventListener("transitionend", removeTransition)
       );
-      window.addEventListener("keydown", playSound);
+      window.addEventListener("keydown", playSound); // Call playSound function when a key is pressed
     </script>
   </body>
 </html>
