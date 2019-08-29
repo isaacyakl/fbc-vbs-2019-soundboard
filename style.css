@@ -1,6 +1,6 @@
 html {
   font-size: 10px;
-  /* background: url(?) bottom center; */
+  color: #efefef;
   background-color: #4b4848;
   background-size: cover;
 }
@@ -12,6 +12,15 @@ html {
   font-family: sans-serif;
 }
 
+a,
+a:active,
+a:visited {
+  color: #efefef;
+}
+a:hover {
+  color: white;
+}
+
 h1,
 h2,
 h3,
@@ -21,10 +30,17 @@ h6 {
   color: white;
 }
 
+.links {
+  margin-top: 2em;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
 .keys {
   display: flex;
   flex: 1;
-  /* min-height: 100vh; */
   align-items: center;
   justify-content: center;
 }
