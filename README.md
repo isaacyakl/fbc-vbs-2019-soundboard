@@ -1,5 +1,7 @@
-# Fairhaven Bible Chapel VBS 2019 Soundboard
+![Soundboard Screenshot](fbc-vbs-2019-soundboard-ss1-cover.jpg)
 
-This soundboard uses JS to play and stop HTML5 audio elements via preset keybinds.
+# FBC VBS 2019 Keyboard Soundboard
 
-Demo: [https://isaacyakl.github.io/fairhaven-bc-vbs-2019-soundboard/](https://isaacyakl.github.io/fairhaven-bc-vbs-2019-soundboard/)
+This keyboard soundboard uses JavaScript to play and stop HTML5 audio elements via preset keybinds. [Read more...](https://www.isaacyakl.com/work/fbc-vbs-2019-soundboard)
+
+Demo: [https://isaacyakl.github.io/fbc-vbs-2019-soundboard/](https://isaacyakl.github.io/fbc-vbs-2019-soundboard/)
